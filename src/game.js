@@ -74,11 +74,11 @@ function game(){
         
         alert(`Player wins by ${player} to ${computer}`)
     }
-    else if(player = computer){
-        alert(`its a draw by ${player} to ${computer}`)
-    }
     else if (player < computer ){
         alert(`Computer wins by ${computer} to ${player}`)
+    }
+    else{
+        alert(`It's a draw  ${computer} to ${player}`)
     }
 
 }
