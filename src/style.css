@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(245, 245, 207);
+    
+    
+
+}
+.title{
+    color: darkblue;
+    text-align: center;
+    
+}
+.title:hover{
+    color:rgb(129, 129, 161);
+}
+.game-space{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+.game-space1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 40px;
+}
+.result{
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 50px;
+}
+.choice-container{
+    display: flex;
+    flex-direction: column;
+     
+}
+.choices{
+    display: flex; 
+    justify-content: space-around; 
+    
+}
+.each-choice-container:hover{
+    
+    transform: rotate(20deg);
+}
