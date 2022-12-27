@@ -1,17 +1,44 @@
-
-
+var player = 0
+var computer = 0
 function test(value){
     const playerSelectionDisplay = document.getElementById("player-choice");
     const computerSelection = getComputerChoice();
     const computerSelectionDisplay = document.getElementById('computer-choice');
+    const container = document.getElementsByClassName("choice-container")
     const info = document.getElementById("info")
+    
+    const score = document.getElementById("score")
     let choice = value
     let result = playRound(choice,computerSelection)
     playerSelectionDisplay.innerHTML = choice;
-    computerSelectionDisplay.innerHTML = computerSelection;
+    computerSelectionDisplay.innerHTML = ""+computerSelection;
     info.innerHTML = result[1]
+    winner(result[0])
+    
+   
 
 
+}
+function winner(value,){
+        if (value==1){
+            player++
+            score.innerHTML = player +'-'+computer
+        }
+        else if(value==2){
+            computer++
+            score.innerHTML = player +'-'+computer
+            
+        }
+        
+    if(player == 5){
+        info.innerHTML = "<h1 style='color:Green'>YOU win</h1>"
+        score.innerHTML = ""
+    }
+    else if(computer == 5){
+        info.innerHTML = "<h1 style='color:red'>YOU LOSE</h1>  "
+        score.innerHTML = ""
+    }
+    
 }
 function getComputerChoice(){
 ComputerChoice = Math.floor(Math.random()*3)
@@ -65,13 +92,11 @@ function playRound(playerSelection, computerSelection){
 function game(){
     player = 0
     computer = 0
-    for ( let i=0; i<5; i++){
+    while(player < 5 && computer <5){
         const input = prompt("Enter your selection:")
         result = playRound(input,getComputerChoice())
         if (result[0]==1){
             player++
-            console.log("player",player)
-            console.log(result[1])
         }
         else if (result[0]==0){
             console.log(result[1])
