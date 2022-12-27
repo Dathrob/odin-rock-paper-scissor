@@ -9,6 +9,10 @@ body{
     text-align: center;
     
 }
+h2{
+    text-align: center;
+}
+
 .title:hover{
     color:rgb(129, 129, 161);
 }
@@ -24,15 +28,32 @@ body{
     justify-content: space-around;
     font-size: 40px;
 }
+.player-choice,.computer-choice{
+    text-align: center;
+}
+
 .result{
     text-align: center;
     font-size: 32px;
-    margin-bottom: 50px;
+    font-family: 'Ampleser', sans-serif;
+    margin-bottom: 20px;
+    color:rgb(202, 72, 33)
+
 }
 .choice-container{
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
      
+}
+button{
+    border:none;
+    background-color: rgb(245, 245, 207);
+}
+span{
+    color:rgb(56, 26, 14);
+    text-align: center;
+    
 }
 .choices{
     display: flex; 
@@ -42,4 +63,15 @@ body{
 .each-choice-container:hover{
     
     transform: rotate(20deg);
+}
+.name{
+    text-align: center;
+    font-size: 30px;
+    margin-top: 14px;
+    font-weight: bold;
+
+}
+.result.info{
+    display: flex;
+    flex-direction: column;
 }

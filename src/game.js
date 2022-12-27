@@ -1,4 +1,18 @@
 
+
+function test(value){
+    const playerSelectionDisplay = document.getElementById("player-choice");
+    const computerSelection = getComputerChoice();
+    const computerSelectionDisplay = document.getElementById('computer-choice');
+    const info = document.getElementById("info")
+    let choice = value
+    let result = playRound(choice,computerSelection)
+    playerSelectionDisplay.innerHTML = choice;
+    computerSelectionDisplay.innerHTML = computerSelection;
+    info.innerHTML = result[1]
+
+
+}
 function getComputerChoice(){
 ComputerChoice = Math.floor(Math.random()*3)
 if(ComputerChoice == 0){
