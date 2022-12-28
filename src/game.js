@@ -1,43 +1,62 @@
 var player = 0
 var computer = 0
-function test(value){
+function game(value){
     const playerSelectionDisplay = document.getElementById("player-choice");
     const computerSelection = getComputerChoice();
     const computerSelectionDisplay = document.getElementById('computer-choice');
     const container = document.getElementsByClassName("choice-container")
     const info = document.getElementById("info")
-    
     const score = document.getElementById("score")
+    const button = document.querySelector('#button');
     let choice = value
     let result = playRound(choice,computerSelection)
     playerSelectionDisplay.innerHTML = choice;
     computerSelectionDisplay.innerHTML = ""+computerSelection;
+    winner(result[0]) 
+    if (player == 5 || computer == 5){
+        info.innerHTML = ""
+        playerSelectionDisplay.innerHTML = "-";
+        computerSelectionDisplay.innerHTML = "-";
+    }
+    else{
     info.innerHTML = result[1]
-    winner(result[0])
+    playerSelectionDisplay.innerHTML = choice;
+    computerSelectionDisplay.innerHTML = ""+computerSelection;}
     
-   
-
+    if (player == 5 || computer == 5){
+        button.disabled = true;
+    }
 
 }
-function winner(value,){
-        if (value==1){
+function winner(value){
+    
+        if (value==1 && player < 5 && computer < 5){
             player++
+            console.log("player :",player)
             score.innerHTML = player +'-'+computer
+            
+
         }
-        else if(value==2){
+        else if(value==2 && player < 5 && computer < 5){
             computer++
+            console.log("computer :",computer)
             score.innerHTML = player +'-'+computer
             
         }
         
-    if(player == 5){
-        info.innerHTML = "<h1 style='color:Green'>YOU win</h1>"
-        score.innerHTML = ""
+    if(player == 5 && player < 6 && computer < 6){
+        score.innerHTML = "<h1 style='color:Green'>YOU win</h1> <div><a href='.' style='background-color: rgb(245, 280, 300); color: black; text-decoration: none; padding: 0.5em;margin-top: 50px; border-radius: 25px; border:1px solid;'>RESTART</a></div>"
+        
+    
     }
-    else if(computer == 5){
-        info.innerHTML = "<h1 style='color:red'>YOU LOSE</h1>  "
-        score.innerHTML = ""
+    else if(computer == 5 && player < 6 && computer < 6){
+        score.innerHTML = "<h1 style='color:Green'>YOU win</h1> <div><a href='.' style='background-color: rgb(245, 280, 300); color: black; text-decoration: none; padding: 0.5em;margin-top: 50px; border-radius: 25px; border:1px solid;'>RESTART</a></div>"
+        
     }
+    
+    
+
+   
     
 }
 function getComputerChoice(){
@@ -88,36 +107,4 @@ function playRound(playerSelection, computerSelection){
     else{
         alert("wrong selection")
     }
-}
-function game(){
-    player = 0
-    computer = 0
-    while(player < 5 && computer <5){
-        const input = prompt("Enter your selection:")
-        result = playRound(input,getComputerChoice())
-        if (result[0]==1){
-            player++
-        }
-        else if (result[0]==0){
-            console.log(result[1])
-        }
-        else if(result[0]==2){
-            computer++
-            console.log("computer",computer)
-            console.log("player",player)
-            console.log(result[1])
-        }
-    
-    };
-    if(player > computer){
-        
-        alert(`Player wins by ${player} to ${computer}`)
-    }
-    else if (player < computer ){
-        alert(`Computer wins by ${computer} to ${player}`)
-    }
-    else{
-        alert(`It's a draw  ${computer} to ${player}`)
-    }
-
 }
